@@ -27,6 +27,17 @@ export default (
       newState.text = "Error at login";
       newState.styles = ToastStyles.error;
       break;
+    case "REQUEST_LOGOUT":
+      newState.loading = true;
+      break;
+    case "REQUEST_LOGOUT_FULFILLED":
+      newState.loading = false;
+      break;
+    case "REQUEST_LOGOUT_REJECTED":
+      newState.loading = false;
+      newState.text = "Error logging out";
+      newState.styles = ToastStyles.error;
+      break;
     case "REQUEST_PRODUCT":
       newState.loading = true;
       break;
@@ -47,6 +58,39 @@ export default (
     case "REQUES_ADD_CART_REJECTED":
       newState.loading = false;
       newState.text = "Error adding product to your cart";
+      newState.styles = ToastStyles.error;
+      break;
+    case "REQUEST_SHOPPING_BAG":
+      newState.loading = true;
+      break;
+    case "REQUEST_SHOPPING_BAG_FULFILLED":
+      newState.loading = false;
+      break;
+    case "REQUEST_SHOPPING_BAG_REJECTED":
+      newState.loading = false;
+      newState.text = "Error getting shoppingbag";
+      newState.styles = ToastStyles.error;
+      break;
+    case "REQUEST_DELETE_ITEM_SHOPPINGBAG":
+      newState.loading = true;
+      break;
+    case "REQUEST_DELETE_ITEM_SHOPPINGBAG_FULFILLED":
+      newState.loading = false;
+      break;
+    case "REQUEST_DELETE_ITEM_SHOPPINGBAG_REJECTED":
+      newState.loading = false;
+      newState.text = "Error deleting product";
+      newState.styles = ToastStyles.error;
+      break;
+    case "REQUEST_DELETE_SHOPPINGBAG":
+      newState.loading = true;
+      break;
+    case "REQUEST_DELETE_SHOPPINGBAG_FULFILLED":
+      newState.loading = false;
+      break;
+    case "REQUEST_DELETE_SHOPPINGBAG_REJECTED":
+      newState.loading = false;
+      newState.text = "Error checking shopping bag";
       newState.styles = ToastStyles.error;
       break;
     case "RESET_ERROR_STATE":

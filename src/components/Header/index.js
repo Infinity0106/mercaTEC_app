@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Modal } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import IconEnt from "react-native-vector-icons/Entypo";
 import Toaster from "react-native-toaster";
+import Spinner from "react-native-spinkit";
 
 import * as Ctrl from "./ctrl";
 
@@ -50,6 +51,7 @@ class Header extends Component {
           </View>
           {this.renderRight(route_name)}
         </View>
+        {this.renderLoading()}
       </View>
     );
   }
@@ -122,6 +124,32 @@ class Header extends Component {
       >
         <Icon name="shoppingcart" color="#fff" size={30} />
       </TouchableOpacity>
+    );
+  }
+
+  renderLoading() {
+    return (
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={this.props.error.loading}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+        }}
+      >
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "rgba(0,0,0,.6)",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 20 }}>Loading!</Text>
+
+          <Spinner isVisible={true} size={120} type={"Bounce"} color={"#fff"} />
+        </View>
+      </Modal>
     );
   }
   componentDidMount() {}

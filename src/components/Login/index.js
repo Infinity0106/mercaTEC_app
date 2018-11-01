@@ -22,10 +22,12 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Toaster
-          message={this.props.error.text ? this.props.error : null}
-          onHide={Ctrl.hideToast.bind(this)}
-        />
+        {this.props.error.text != "" && (
+          <Toaster
+            message={this.props.error.text ? this.props.error : null}
+            onHide={Ctrl.hideToast.bind(this)}
+          />
+        )}
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
@@ -46,6 +48,8 @@ class Login extends Component {
               paddingTop: 30,
               textAlign: "center"
             }}
+            textContentType="emailAddress"
+            autoCapitalize="none"
             placeholder="Email"
             value={this.props.user.email}
             onChangeText={text => Ctrl.changeValue.bind(this, text, "email")()}
@@ -61,6 +65,7 @@ class Login extends Component {
               textAlign: "center"
             }}
             placeholder="Password"
+            textContentType="password"
             secureTextEntry
             value={this.props.user.password}
             data_key="password"

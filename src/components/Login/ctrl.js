@@ -21,6 +21,16 @@ export function goLanding() {
         payload: Backend.login(this.props.user.email, this.props.user.password)
       })
       .then(() => {
+        self.props.dispatch({
+          type: "SET_USER_VALUE",
+          key: "email",
+          value: ""
+        });
+        self.props.dispatch({
+          type: "SET_USER_VALUE",
+          key: "password",
+          value: ""
+        });
         self.props.navigation.navigate("LandingStack");
       });
   }

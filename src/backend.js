@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-Axios.defaults.baseURL = "http://192.168.15.5:3000/api/v1";
+Axios.defaults.baseURL = "http://10.15.87.251:3000/api/v1";
 Axios.defaults.headers.common["X-Application"] = "app";
 
 function request(method, url, data = null, headers = null) {
@@ -25,20 +25,31 @@ export function login(email, password) {
   });
 }
 export function logout() {
-  return request("POST", `/logut`, {});
+  return request("DELETE", `/logout`, {}).then(res => {
+    delete Axios.defaults.headers.common["Authorization"];
+    return res;
+  });
 }
+
 export function shopping_bag() {
   return request("GET", `/shopping_bags`);
 }
-export function remove_shopping_bag() {
+
+export function remove_shopping_bag(id) {
   return request("DELETE", `/shopping_bags/${id}`);
 }
+
+export function remove_item_shopping_bag(shopping_id, product_id) {
+  return request(
+    "DELETE",
+    `/shopping_bags/${shopping_id}/products/${product_id}`
+  );
+}
+
 export function add_shopping_bag(id) {
-  return request("POST", `/shopping_bags/${id}`, {});
+  return request("POST", `/shopping_bags/${id}`, { product_id: id });
 }
-export function buy_shopping_bag() {
-  return request("POST", `/shopping_bags/${id}`, {});
-}
+
 export function product(id) {
   return request("GET", `/products/${id}`);
 }

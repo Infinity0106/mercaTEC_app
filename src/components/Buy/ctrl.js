@@ -15,6 +15,10 @@ export function addToCart() {
       payload: Backend.add_shopping_bag(this.props.product.id)
     })
     .then(() => {
+      self.props.dispatch({
+        type: "SET_SCANNER_ACTIVE_STATUS",
+        value: true
+      });
       self.props.navigation.navigate("Landing");
     });
 }
