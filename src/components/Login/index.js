@@ -28,6 +28,21 @@ class Login extends Component {
             onHide={Ctrl.hideToast.bind(this)}
           />
         )}
+        <TouchableOpacity
+          style={{
+            position: "absolute",
+            top: 25,
+            left: 0,
+            width: 50,
+            height: 50,
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 10
+          }}
+          onPress={Ctrl.goOnboarding.bind(this)}
+        >
+          <Icon name="back" color="#000" size={30} />
+        </TouchableOpacity>
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
@@ -35,7 +50,7 @@ class Login extends Component {
             source={require("./../../../logo.png")}
             style={{ width: 100, height: 100 }}
           />
-          <Text>MercaTEC</Text>
+          <Text style={{ fontSize: 24, fontWeight: "bold" }}>MercaTEC</Text>
         </View>
         <View style={{ flex: 2 }}>
           <TextInput
@@ -79,7 +94,7 @@ class Login extends Component {
               marginTop: 30,
               padding: 10,
               borderRadius: 20,
-              backgroundColor: "green",
+              backgroundColor: "#21ba45",
               alignItems: "center",
               justifyContent: "center"
             }}

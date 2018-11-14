@@ -14,7 +14,16 @@ class Account extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Account</Text>
+        <TouchableOpacity
+          style={{
+            padding: 20,
+            borderBottomColor: "grey",
+            borderBottomWidth: 1
+          }}
+          onPress={Ctrl.goHistory.bind(this)}
+        >
+          <Text>Order history</Text>
+        </TouchableOpacity>
         <View style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
           <TouchableOpacity
             style={{

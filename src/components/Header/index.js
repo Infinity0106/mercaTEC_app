@@ -71,6 +71,20 @@ class Header extends Component {
         </TouchableOpacity>
       );
     }
+    if (scene == "History") {
+      return (
+        <TouchableOpacity
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+          onPress={Ctrl.goAccount.bind(this)}
+        >
+          <Icon name="back" color="#fff" size={30} />
+        </TouchableOpacity>
+      );
+    }
     if (scene == "Buy") {
       return (
         <TouchableOpacity
@@ -100,7 +114,12 @@ class Header extends Component {
   }
 
   renderRight(scene) {
-    if (scene == "Buy" || scene == "ShoppingBag" || scene == "Account") {
+    if (
+      scene == "Buy" ||
+      scene == "ShoppingBag" ||
+      scene == "Account" ||
+      scene == "History"
+    ) {
       return (
         <View
           style={{

@@ -9,8 +9,10 @@ import {
 import Header from "./components/Header";
 import OnBoarding from "./components/OnBoarding";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 import Landing from "./components/Landing";
 import Account from "./components/Account";
+import History from "./components/History";
 import Buy from "./components/Buy";
 import ShoppingBag from "./components/ShoppingBag";
 
@@ -34,13 +36,28 @@ const LandingChild = createStackNavigator(
   }
 );
 
+const AccountStack = createStackNavigator(
+  {
+    Account: {
+      screen: Account
+    },
+    History: {
+      screen: History
+    }
+  },
+  {
+    headerMode: "none",
+    initialRouteName: "Account"
+  }
+);
+
 const LandingStack = createStackNavigator(
   {
     LandingChild: {
       screen: LandingChild
     },
-    Account: {
-      screen: Account
+    AccountStack: {
+      screen: AccountStack
     },
     ShoppingBag: {
       screen: ShoppingBag
@@ -61,6 +78,9 @@ const RootNavigator = createStackNavigator(
     },
     Login: {
       screen: Login
+    },
+    Signup: {
+      screen: Signup
     },
     LandingStack: {
       screen: LandingStack

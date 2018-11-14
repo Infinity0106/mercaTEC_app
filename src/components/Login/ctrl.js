@@ -41,3 +41,7 @@ export function hideToast() {
     type: "RESET_ERROR_STATE"
   });
 }
+
+export function goOnboarding() {
+  this.props.navigation.goBack();
+}

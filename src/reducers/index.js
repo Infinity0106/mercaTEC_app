@@ -6,6 +6,7 @@ import product from "./product";
 import shopping_bag from "./shopping_bag";
 import user from "./user";
 import landing from "./landing";
+import history from "./history";
 
 export default combineReducers({
   nav,
@@ -13,5 +14,6 @@ export default combineReducers({
   product,
   shopping_bag,
   user,
-  landing
+  landing,
+  history
 });

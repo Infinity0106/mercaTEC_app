@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
 
 import * as Ctrl from "./ctrl";
 
@@ -13,30 +14,55 @@ class OnBoarding extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 2 }}>
-          <Image source={require("./../../../logo.png")} />
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Image
+            source={require("./../../../logo.png")}
+            style={{ width: 100, height: 100 }}
+          />
+          <Text style={{ fontSize: 24, fontWeight: "bold" }}>MercaTEC</Text>
         </View>
         <View style={{ flex: 1 }}>
           <TouchableOpacity
             style={{
               margin: 10,
-              flex: 1,
-              backgroundColor: "red",
-              borderRadius: 5
+              height: 40,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#21ba45",
+              borderRadius: 30
             }}
             onPressIn={Ctrl.goLogin.bind(this)}
           >
-            <Text>No manches</Text>
+            <Icon name="login" color="#fff" size={18}>
+              {" "}
+              <Text
+                style={{ textAlign: "center", color: "white", fontSize: 18 }}
+              >
+                Login
+              </Text>
+            </Icon>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               margin: 10,
-              flex: 1,
-              backgroundColor: "green",
-              borderRadius: 10
+              height: 40,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#2f3032",
+              borderRadius: 30
             }}
+            onPress={Ctrl.goSignUp.bind(this)}
           >
-            <Text>Si manches</Text>
+            <Icon name="user" color="#fff" size={18}>
+              {" "}
+              <Text
+                style={{ textAlign: "center", color: "white", fontSize: 18 }}
+              >
+                Signup
+              </Text>
+            </Icon>
           </TouchableOpacity>
         </View>
       </View>
@@ -48,8 +74,6 @@ class OnBoarding extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "rgb(238,238,243)"
   }
 });

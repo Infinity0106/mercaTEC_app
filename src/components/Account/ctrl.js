@@ -14,3 +14,7 @@ export function goLogout() {
       self.props.navigation.navigate("OnBoarding");
     });
 }
+
+export function goHistory() {
+  this.props.navigation.navigate("History");
+}

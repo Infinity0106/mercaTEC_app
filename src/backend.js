@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-Axios.defaults.baseURL = "http://10.15.87.251:3000/api/v1";
+Axios.defaults.baseURL = "http://10.12.44.134:3000/api/v1";
 Axios.defaults.headers.common["X-Application"] = "app";
 
 function request(method, url, data = null, headers = null) {
@@ -24,6 +24,16 @@ export function login(email, password) {
     return res;
   });
 }
+
+export function signup(data) {
+  return request("POST", "/signup", {
+    user: data
+  }).then(res => {
+    Axios.defaults.headers.common["Authorization"] = res.data.token;
+    return res;
+  });
+}
+
 export function logout() {
   return request("DELETE", `/logout`, {}).then(res => {
     delete Axios.defaults.headers.common["Authorization"];
@@ -52,4 +62,8 @@ export function add_shopping_bag(id) {
 
 export function product(id) {
   return request("GET", `/products/${id}`);
+}
+
+export function getHistory() {
+  return request("GET", `/sells`);
 }

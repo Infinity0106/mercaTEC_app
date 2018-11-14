@@ -31,9 +31,10 @@ class Buy extends Component {
           <Spinner isVisible size={100} type={"Bounce"} color={"#262626"} />
         )}
         {!this.props.error.loading && (
-          <View style={{ flex: 1 }}>
+          <>
             <View style={{ flex: 1 }}>
               <Carousel
+                autoplay
                 data={this.props.product.images}
                 renderItem={this.renderImage}
                 sliderWidth={width * this.props.product.images.length}
@@ -43,6 +44,7 @@ class Buy extends Component {
             <View
               style={{
                 flex: 2,
+                alignSelf: "stretch",
                 marginHorizontal: 10,
                 marginTop: 10
               }}
@@ -60,7 +62,13 @@ class Buy extends Component {
                   </Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: 20,
+                      textAlign: "right"
+                    }}
+                  >
                     ${this.props.product.price}
                   </Text>
                 </View>
@@ -90,7 +98,7 @@ class Buy extends Component {
                 </Icon>
               </TouchableOpacity>
             </View>
-          </View>
+          </>
         )}
       </View>
     );
