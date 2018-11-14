@@ -1,9 +1,9 @@
 export default (
   state = {
-    email: "berny.orozco@hotmail1.com",
-    username: "username",
-    password: "1234567890",
-    password_confirmation: "1234567890",
+    email: "",
+    username: "",
+    password: "",
+    password_confirmation: "",
     token: ""
   },
   action

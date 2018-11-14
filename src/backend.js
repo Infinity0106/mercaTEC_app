@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-Axios.defaults.baseURL = "http://10.12.44.134:3000/api/v1";
+Axios.defaults.baseURL = "https://radiant-taiga-43847.herokuapp.com/api/v1";
 Axios.defaults.headers.common["X-Application"] = "app";
 
 function request(method, url, data = null, headers = null) {

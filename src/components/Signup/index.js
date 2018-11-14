@@ -6,7 +6,8 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Image
+  Image,
+  Keyboard
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import Toaster from "react-native-toaster";
@@ -21,7 +22,7 @@ class Signup extends Component {
   componentWillMount() {}
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} onPress={Keyboard.dismiss}>
         {this.props.error.text != "" && (
           <Toaster
             message={this.props.error.text ? this.props.error : null}
